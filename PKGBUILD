@@ -4,7 +4,7 @@
 
 pkgname="teamspeak3-server"
 pkgver="3.0.11.2"
-pkgrel=2
+pkgrel=3
 pkgdesc="A proprietary VoIP conference software"
 arch=('i686' 'x86_64')
 
@@ -19,7 +19,7 @@ fi
 url="http://www.teamspeak.com/"
 license=('custom')
 makedepends=('curl')
-depends=('bash')
+depends=('')
 backup=('etc/conf.d/teamspeak3-server')
 install="${pkgname}.install"
 source=("http://teamspeak.gameserver.gamed.de/ts3/releases/${pkgver}/${pkgname}_linux-${_TSARCH}-${pkgver}.tar.gz"

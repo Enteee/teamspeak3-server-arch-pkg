@@ -10,6 +10,9 @@ post_install() {
   chown -R teamspeak:teamspeak /var/lib/teamspeak3-server/
   find  /usr/share/teamspeak3-server/sql -type d -exec chmod 755 {} \;
 
+  # Load unit file
+  systemctl --system daemon-reload
+
   echo " >>> TeamSpeak End User License Agreement:"
   echo " >>> You need to agree with the license at"
   echo " >>> /usr/share/licenses/teamspeak3-server/LICENSE"
