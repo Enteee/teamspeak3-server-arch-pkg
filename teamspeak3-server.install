@@ -29,7 +29,7 @@ post_upgrade() {
 }
 
 pre_remove() {
-  if ! systemctl --quiet is-active teamspeak3-server; then
+  if systemctl --quiet is-active teamspeak3-server; then
     systemctl stop teamspeak3-server
   fi
 }

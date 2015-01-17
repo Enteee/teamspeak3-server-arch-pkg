@@ -32,8 +32,6 @@ sha1sums=("${_TSSHA1}"
 package() {
     cd "${srcdir}"
     
-    install -d "${pkgdir}/usr/share/doc/${pkgname}"
-    install -d "${pkgdir}/usr/share/${pkgname}/sql"
     install -dm 0750 "${pkgdir}/var/lib/${pkgname}"
     install -dm 0750 "${pkgdir}/var/log/${pkgname}"
     
@@ -44,8 +42,10 @@ package() {
     install -Dm 644 "${pkgname}_linux-${_TSARCH}/libts3db_sqlite3.so" "${pkgdir}/usr/lib/libts3db_sqlite3.so"
     install -Dm 755 "${pkgname}_linux-${_TSARCH}/ts3server_linux_${_TSARCH}" "${pkgdir}/usr/bin/${pkgname}"
 
-    cp -a "${pkgname}_linux-${_TSARCH}/sql/"* "${pkgdir}/usr/share/${pkgname}/sql"
-    cp -a "${pkgname}_linux-${_TSARCH}/doc/"* "${pkgdir}/usr/share/doc/${pkgname}"
+    install -dm 755 "${pkgdir}/usr/share/${pkgname}"
+    cp -a "${pkgname}_linux-${_TSARCH}/sql/" "${pkgdir}/usr/share/${pkgname}/"
+    install -dm 755 "${pkgdir}/usr/share/doc/${pkgname}"
+    cp -a "${pkgname}_linux-${_TSARCH}/doc/" "${pkgdir}/usr/share/doc/${pkgname}/"
 
     install -Dm 644 "${pkgname}_linux-${_TSARCH}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
