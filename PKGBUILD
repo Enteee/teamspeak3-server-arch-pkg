@@ -32,9 +32,6 @@ sha1sums=("${_TSSHA1}"
 package() {
     cd "${srcdir}"
     
-    install -dm 0750 "${pkgdir}/var/lib/${pkgname}"
-    install -dm 0750 "${pkgdir}/var/log/${pkgname}"
-    
     install -Dm 644 "${pkgname}.conf.d" "${pkgdir}/etc/conf.d/${pkgname}"
     install -Dm 644 "${pkgname}.service" "${pkgdir}/usr/lib/systemd/system/${pkgname}.service"
 
